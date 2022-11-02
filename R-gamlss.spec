@@ -4,7 +4,7 @@
 #
 Name     : R-gamlss
 Version  : 5.4.3
-Release  : 5
+Release  : 6
 URL      : https://cran.r-project.org/src/contrib/gamlss_5.4-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gamlss_5.4-3.tar.gz
 Summary  : Generalised Additive Models for Location Scale and Shape
