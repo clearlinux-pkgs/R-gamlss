@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-gamlss
-Version  : 5.4.18
-Release  : 13
-URL      : https://cran.r-project.org/src/contrib/gamlss_5.4-18.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/gamlss_5.4-18.tar.gz
+Version  : 5.4.20
+Release  : 14
+URL      : https://cran.r-project.org/src/contrib/gamlss_5.4-20.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/gamlss_5.4-20.tar.gz
 Summary  : Generalised Additive Models for Location Scale and Shape
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -19,8 +19,11 @@ BuildRequires : R-gamlss.dist
 BuildRequires : buildreq-R
 
 %description
-# GAMLSS-original
-Those are the function for creating the package gamlss
+# gamlss: Generalized Additive Models for Location Scale and Shape
+Functions for fitting the Generalized Additive Models for Location Scale and Shape introduced by
+[Rigby and Stasinopoulos (2005)](https://doi.org/10.1111/j.1467-9876.2005.00510.x).
+The models use a distributional regression approach where all the parameters of the conditional
+distribution of the response variable are modelled using explanatory variables.
 
 %package lib
 Summary: lib components for the R-gamlss package.
@@ -41,19 +44,19 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1693936758
+export SOURCE_DATE_EPOCH=1696462257
 
 %install
-export SOURCE_DATE_EPOCH=1693936758
+export SOURCE_DATE_EPOCH=1696462257
 rm -rf %{buildroot}
-export LANG=C.UTF-8
-export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
-export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
-export AR=gcc-ar
-export RANLIB=gcc-ranlib
-export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
+LANG=C.UTF-8
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -flto -fno-semantic-interposition "
+FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -flto -fno-semantic-interposition "
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -flto -fno-semantic-interposition "
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -flto -fno-semantic-interposition "
+AR=gcc-ar
+RANLIB=gcc-ranlib
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
 
 mkdir -p ~/.R
@@ -96,6 +99,7 @@ R CMD check --no-manual --no-examples --no-codoc . || :
 /usr/lib64/R/library/gamlss/Meta/nsInfo.rds
 /usr/lib64/R/library/gamlss/Meta/package.rds
 /usr/lib64/R/library/gamlss/NAMESPACE
+/usr/lib64/R/library/gamlss/NEWS.md
 /usr/lib64/R/library/gamlss/R/gamlss
 /usr/lib64/R/library/gamlss/R/gamlss.rdb
 /usr/lib64/R/library/gamlss/R/gamlss.rdx
